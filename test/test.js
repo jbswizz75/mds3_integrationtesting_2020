@@ -45,3 +45,13 @@ it('Should return all colors', () => {
       expect(value.contents).to.be.true;
     })
 });
+
+//Test for bad request
+it('Should return 404 request', () => {
+  return chai.request(app)
+    .get('/colors')
+    .catch((value) => {
+      expect(value).to.have.status(404);
+    });
+});
+
