@@ -54,3 +54,24 @@ it('Should return 404 request', () => {
     });
 });
 
+//Test to add color
+it('Should add new color', () => {
+  return chai.request(app)
+    .post('/colors')
+    .send(payloadColor('blue', 'white', 'red'))
+    .then((value) => {
+      //Check if it's status 201
+      expect(value).to.have.status(201);
+      //Check if it's a json
+      expect(value).to.be.json;
+      //Check if the body is an object
+      expect(value.body).to.be.an('object');
+      //Check if the result is an array
+      expect(value.body.results).to.be.an('array');
+      //Check if the contents include the new value
+      expect(value.body.results).to.include(getCurrentCulor());
+    })
+});
+
+
+
