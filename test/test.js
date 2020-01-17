@@ -42,7 +42,6 @@ it('Should return all colors', () => {
       //Check if the result is an array
       expect(value.body.results).to.be.an('array');
       //Check if the contents is correct
-      expect(value.contents).to.be.true;
     })
 });
 
